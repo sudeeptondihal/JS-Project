@@ -2,8 +2,11 @@ let category = document.getElementById("categories");
 
 let cards = document.getElementById("cards");
 let search = document.getElementById("search");
+let searchBtn = document.getElementById("search-btn");
+let mealCards = document.getElementById("mealCards");
+let mealTitle = document.getElementById("mealTitle");
 
-let categories = [];
+// let categories = [];
 
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -12,8 +15,8 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
     .then(data => {
 
-        categories = data.categories;
-        categories.forEach(value => {
+        // categories = data.categories;
+        data.categories.forEach(value => {
 
             // Offcanvas categories
             category.innerHTML += `
@@ -30,7 +33,7 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
             // Category cards
             cards.innerHTML += `
 
-                <div class="card">
+                <a href=""><div class="card">
 
                     <img
                         src="${value.strCategoryThumb}"
@@ -41,7 +44,7 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
                         ${value.strCategory}
                     </span>
 
-                </div>
+                </div></a>
 
             `;
 
@@ -56,29 +59,47 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
     });
 
-    search.addEventListener("input",()=>{
-        let value = search.value.toLowerCase()
+   searchBtn.addEventListener("click",(e)=>{
+    e.preventDefault()
+        let searchVal = search.value.trim()
 
-        cards.innerHTML = "";
+    mealCards.innerHTML = "";
+    mealTitle.innerHTML = "";
 
-        categories.forEach((items)=>{
-            if(items.strCategory.toLowerCase().includes(value)){
-                cards.innerHTML += `
+    if(searchVal===""){
+        return;
+    }
 
-                <div class="card">
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchVal}`)
+    .then((res)=>res.json())
+    .then((data)=>{
+        if(!data.meals){
+            mealTitle.innerHTML = "";
+            mealCards.innerHTML = `<h2>NO MEALS FOUND</h2>`;
+            return;
+        }
+   
+     mealTitle.innerHTML = `<div class = "meal-Title">
+    
+     <h1>MEALS</h1>
+      <div id="mealLine"></div>
+     <div class="mealLine"></div>
+     </div>`;
 
-                    <img
-                        src="${items.strCategoryThumb}"
-                        alt="${items.strCategory}"
-                    >
+     data.meals.forEach((meal)=>{
+        mealCards.innerHTML += `<a href="" class = "itemCheck"><div class = "meal-cards">
+        <img src="${meal.strMealThumb}" >
+        <span class="meal-category">${meal.strCategory}</span>
+        <p>${meal.strArea}</p>
+        <h6>${meal.strMeal}</h6>
+        
+        </div>
+        </a>`;
+     })
+      .catch((error) => {
+            console.log("Search Error:", error);
+        });
 
-                    <span>
-                        ${items.strCategory}
-                    </span>
+   })
+})
 
-                </div>
-
-            `;
-            }
-        })
-    })

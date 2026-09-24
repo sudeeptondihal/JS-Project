@@ -41,6 +41,16 @@ div button i {
     color: white;
 }
 
+#search-btn{
+    color: white;
+    background-color: #E16120;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 10px;
+    width: 50px;
+
+    
+}
 
 /*OFFCANVAS*/
 
@@ -151,6 +161,7 @@ div button i {
     margin-bottom: 10px;
 
     font-weight: bold;
+    
 }
 
 
@@ -187,8 +198,8 @@ div button i {
 }
 
 
-.category-heading h2 {
-    font-size: 18px;
+.category-heading h1 {
+    font-size: 30px;
 
     letter-spacing: 3px;
 
@@ -199,7 +210,7 @@ div button i {
 
 
 .orange-line {
-    width: 45px;
+    width: 80px;
     height: 3px;
 
     background-color: #E16120;
@@ -258,22 +269,77 @@ div button i {
 .card span {
     position: absolute;
 
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
 
     background-color: #E16120;
 
     color: white;
 
-    font-size: 9px;
+    font-size: 12px;
 
     padding: 4px 7px;
 
     font-weight: bold;
 
-    text-transform: uppercase;
-
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 
+#mealCards{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 25px;
+    padding: 20px;
+    line-height: 20px;
+}
+
+.meal-cards{
+    position: relative;
+    background-color: white;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px black;
+    margin-top: 20px;
+    
+}
+
+.meal-cards img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.meal-cards h3{
+    padding: 0 15px 10px;
+    color: #E16120;
+}
+
+.meal-Title{
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.meal-category{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #E16120;
+    background-color: white;
+    border-radius: 20px;
+    padding: 7px;
+    
+}
+
+.itemCheck{
+    text-decoration: none;
+    color: black;
+}
+
+#mealLine{
+    background-color: #E16120;
+    height: 4px;
+    width: 60px;
+    margin-top: 10px;
+}
