@@ -299,7 +299,7 @@ div button i {
     background-color: white;
     border-radius: 0px;
     overflow: hidden;
-    box-shadow: 0 1px 3px black;
+    box-shadow: 0 0.5px 6px black;
     margin-top: 20px;
     
 }

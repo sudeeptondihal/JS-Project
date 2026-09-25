@@ -6,7 +6,6 @@ let searchBtn = document.getElementById("search-btn");
 let mealCards = document.getElementById("mealCards");
 let mealTitle = document.getElementById("mealTitle");
 
-// let categories = [];
 
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -95,10 +94,11 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         
         </div>
         </a>`;
+
      })
       .catch((error) => {
             console.log("Search Error:", error);
-        });
+     });
 
    })
 })
