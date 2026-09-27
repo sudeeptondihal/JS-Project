@@ -1,5 +1,4 @@
 let category = document.getElementById("categories");
-
 let cards = document.getElementById("cards");
 let search = document.getElementById("search");
 let searchBtn = document.getElementById("search-btn");
@@ -30,7 +29,7 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
 
             // Category cards
-            cards.innerHTML += `
+            cards.innerHTML +=                                      `
 
                 <a href=""><div class="card">
 
@@ -57,6 +56,8 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         console.log("Error:", error);
 
     });
+
+    // search categories item                     
 
    searchBtn.addEventListener("click",(e)=>{
     e.preventDefault()
