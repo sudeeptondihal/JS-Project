@@ -1,0 +1,261 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*  NAVBAR*/
+
+nav {
+    background-color: #E16120;
+    padding: 5px 10px;
+    height: 50px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav a{
+    text-decoration: none;
+}
+
+.nav img {
+    width: 50px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav h1 {
+    font-size: 25px;
+    margin: 0;
+    color: white;
+}
+
+.menu button {
+    font-size: 20px;
+    border: none;
+    padding: 0;
+}
+
+div button i {
+    color: white;
+}
+
+
+/*  SEARCH BUTTON */
+
+#search-btn {
+    color: white;
+    background-color: #E16120;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    width: 100;
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* OFFCANVAS*/
+
+.category {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.category:hover {
+    background-color: #E16120;
+    color: white;
+}
+
+
+/* BANNER*/
+
+.hero {
+    width: 100%;
+    height: 500px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("bg-img.jpeg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* HERO CONTENT */
+
+.div1 {
+    width: 100%;
+    padding: 20px;
+}
+
+
+/*  SEARCH BOX */
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-box input {
+    width: 350px;
+    height: 50px;
+
+    border-radius: 30px;
+
+    border: none;
+
+    padding: 0 20px;
+
+    font-size: 16px;
+}
+
+
+/* HERO TEXT */
+
+.div1 h1 {
+    color: white;
+
+    font-size: 32px;
+
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    font-weight: bold;
+}
+
+.div1 p {
+    color: white;
+
+    font-size: 14px;
+
+    margin: 0;
+
+    letter-spacing: 1px;
+}
+
+
+/* MEAL TITLE */
+
+
+.meal-Title {
+   
+    padding: 35px 20px 20px;
+}
+
+
+ .mealLine {
+    height: 3px;
+    background-color: #E16120;
+    width: 70px;
+} 
+
+
+
+.description {
+    padding: 15px;
+    margin: 20px;
+    border: 2px solid #E16120;
+ 
+}
+
+.description h2 {
+    margin-bottom: 15px;
+
+    color: #E16120;
+ 
+}
+
+.description p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #555;
+
+    margin: 0;
+}
+
+
+/* MEAL CARDS */
+
+#mealCards {
+    width: 90%;
+
+    margin: 10px auto 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Meal card link */
+
+.itemCheck {
+    text-decoration: none;
+
+    color: black;
+
+    display: block;
+}
+
+
+/* Card */
+
+.meal-cards {
+    background-color: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+
+    height: 100%;
+}
+
+/* Meal image */
+
+.meal-cards img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+
+

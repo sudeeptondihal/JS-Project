@@ -6,6 +6,7 @@ let mealCards = document.getElementById("mealCards");
 let mealTitle = document.getElementById("mealTitle");
 
 
+// GET CATEGORIES
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
@@ -13,13 +14,14 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
     .then(data => {
 
-        // categories = data.categories;
         data.categories.forEach(value => {
 
-            // Offcanvas categories
+            // OFFCANVAS MENU
+
             category.innerHTML += `
 
-                <div class="category">
+                <div class="category"
+                     onclick="openCategory('${value.strCategory}')">
 
                     ${value.strCategory}
 
@@ -28,21 +30,26 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
             `;
 
 
-            // Category cards
-            cards.innerHTML +=                                      `
+            // CATEGORY CARDS
 
-                <a href=""><div class="card">
+            cards.innerHTML += `
 
-                    <img
-                        src="${value.strCategoryThumb}"
-                        alt="${value.strCategory}"
-                    >
+                <a href="second.html?category=${encodeURIComponent(value.strCategory)}">
 
-                    <span>
-                        ${value.strCategory}
-                    </span>
+                    <div class="card">
 
-                </div></a>
+                        <img
+                            src="${value.strCategoryThumb}"
+                            alt="${value.strCategory}"
+                        >
+
+                        <span>
+                            ${value.strCategory}
+                        </span>
+
+                    </div>
+
+                </a>
 
             `;
 
@@ -50,16 +57,12 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
     })
 
-
     .catch(error => {
 
         console.log("Error:", error);
 
     });
-
-    // search categories item                     
-
-   searchBtn.addEventListener("click",(e)=>{
+searchBtn.addEventListener("click",(e)=>{
     e.preventDefault()
         let searchVal = search.value.trim()
 
@@ -104,3 +107,11 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
    })
 })
 
+// MENU CATEGORY CLICK
+
+function openCategory(categoryName) {
+
+    window.location.href =
+        "second.html?category=" + encodeURIComponent(categoryName);
+
+}

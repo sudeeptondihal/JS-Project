@@ -4,7 +4,8 @@ let mealTitle = document.getElementById("mealTitle");
 let mealDesc = document.getElementById("mealDesc");
 
 
-// Get categories
+// GET CATEGORIES FOR MENU
+
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
     .then(response => response.json())
@@ -14,103 +15,151 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         data.categories.forEach(value => {
 
             category.innerHTML += `
+
                 <div class="category"
-                     onclick="getMeals('${value.strCategory}')">
+                     onclick="openCategory('${value.strCategory}')">
 
                     ${value.strCategory}
 
                 </div>
+
             `;
 
         });
 
+    })
+
+    .catch(error => {
+
+        console.log("Category Error:", error);
+
     });
 
 
-// Get meals by category
-function getMeals(categoryName) {
+// OPEN CATEGORY
 
-    mealCards.innerHTML = "";
-    mealTitle.innerHTML = "";
-    mealDesc.innerHTML = "";
+function openCategory(categoryName) {
+
+    window.location.href =
+        "second.html?category=" + encodeURIComponent(categoryName);
+
+}
 
 
-    // First get category description
-    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+// GET CATEGORY FROM URL
 
-        .then(response => response.json())
+let url = new URLSearchParams(window.location.search);
 
-        .then(data => {
+let categoryName = url.get("category");
 
-            let selectedCategory = data.categories.find(
-                value => value.strCategory === categoryName
-            );
 
+// GET CATEGORY DESCRIPTION
+
+fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        let selectedCategory = data.categories.find(
+            value => value.strCategory === categoryName
+        );
+
+
+        if (selectedCategory) {
 
             mealDesc.innerHTML = `
+
                 <div class="description">
 
-                    <h2>${selectedCategory.strCategory}</h2>
+                    <h2>
+                        ${selectedCategory.strCategory}
+                    </h2>
 
                     <p>
                         ${selectedCategory.strCategoryDescription}
                     </p>
 
                 </div>
+
+            `;
+
+        }
+
+    })
+
+    .catch(error => {
+
+        console.log("Description Error:", error);
+
+    });
+
+
+// GET MEALS
+
+fetch(
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(categoryName)}`
+)
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        // mealTitle.innerHTML = `
+
+        //     <div class="meal-Title">
+
+        //         <h1>
+        //             ${categoryName} MEALS
+        //         </h1>
+
+        //         <div class="mealLine"></div>
+
+        //     </div>
+
+        // `;
+
+
+        // if (!data.meals) {
+
+        //     mealCards.innerHTML = `
+        //         <h2>NO MEALS FOUND</h2>
+        //     `;
+
+        //     return;
+
+        // }
+
+
+        data.meals.forEach(meal => {
+
+            mealCards.innerHTML += `
+
+                <a href="" class="itemCheck">
+
+                    <div class="meal-cards">
+
+                        <img
+                            src="${meal.strMealThumb}"
+                            alt="${meal.strMeal}"
+                        >
+
+                        <h6>
+                            ${meal.strMeal}
+                        </h6>
+
+                    </div>
+
+                </a>
+
             `;
 
         });
 
+    })
 
-    // Get meals
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
+    .catch(error => {
 
-        .then(response => response.json())
+        console.log("Meal Error:", error);
 
-        .then(data => {
-
-            mealTitle.innerHTML = `
-                <div class="meal-Title">
-
-                    <h1>MEALS</h1>
-
-                    <div class="mealLine"></div>
-
-                </div>
-            `;
-
-
-            data.meals.forEach(meal => {
-
-                mealCards.innerHTML += `
-
-                    <a href="" class="itemCheck">
-
-                        <div class="meal-cards">
-
-                            <img
-                                src="${meal.strMealThumb}"
-                                alt="${meal.strMeal}"
-                            >
-
-                           
-
-                            <h6>
-                                ${meal.strMeal}
-                            </h6>
-
-                        </div>
-
-                    </a>
-
-                `;
-
-            });
-
-        })
-
-        .catch(error => {
-            console.log("Error:", error);
-        });
-
-}
+    });

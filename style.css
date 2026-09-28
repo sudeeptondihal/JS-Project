@@ -303,6 +303,7 @@ div button i {
     overflow: hidden;
     box-shadow: 0 0.5px 6px rgb(42, 42, 42);
     margin-top: 20px;
+    width: 278px;
     
 }
 
@@ -350,33 +351,3 @@ div button i {
 
 
 
-.description{
-    border: 2px solid #E16120;
-    padding: 12px;
-    margin: 13px;
-}
-
-.description h2{
-    color: #E16120;
-}
-
-
-.meal-cards{
-    display: grid;
-    width: 250px;
-    height: 200px;
-    border-radius: 4px;
-}
-
-
-.meal-cards h6{
-    padding: 7px;
-}
-
-
-.mealLine{
-    height: 2px;
-    background-color: #E16120;
-    width: 70px;
-
-}
