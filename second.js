@@ -105,32 +105,6 @@ fetch(
 
     .then(data => {
 
-        // mealTitle.innerHTML = `
-
-        //     <div class="meal-Title">
-
-        //         <h1>
-        //             ${categoryName} MEALS
-        //         </h1>
-
-        //         <div class="mealLine"></div>
-
-        //     </div>
-
-        // `;
-
-
-        // if (!data.meals) {
-
-        //     mealCards.innerHTML = `
-        //         <h2>NO MEALS FOUND</h2>
-        //     `;
-
-        //     return;
-
-        // }
-
-
         data.meals.forEach(meal => {
 
             mealCards.innerHTML += `
