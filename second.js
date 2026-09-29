@@ -134,8 +134,7 @@ fetch(
         data.meals.forEach(meal => {
 
             mealCards.innerHTML += `
-
-                <a href="" class="itemCheck">
+<a href="third.html?id=${meal.idMeal}" class="itemCheck">
 
                     <div class="meal-cards">
 

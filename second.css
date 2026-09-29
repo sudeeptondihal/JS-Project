@@ -49,18 +49,15 @@ div button i {
 
 /*  SEARCH BUTTON */
 
-#search-btn {
+#search-btn{
     color: white;
     background-color: #E16120;
     border: 2px solid white;
-    border-radius: 50%;
+    border-radius: 50px;
     padding: 10px;
-    width: 100;
-    text-decoration: none;
+    width: 50px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 
 
