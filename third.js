@@ -5,20 +5,16 @@ let searchBtn = document.getElementById("search-btn");
 let mealCards = document.getElementById("mealCards");
 let mealTitle = document.getElementById("mealTitle");
 
-
 // GET CATEGORIES
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+  .then((response) => response.json())
 
-    .then(response => response.json())
+  .then((data) => {
+    data.categories.forEach((value) => {
+      // OFFCANVAS MENU
 
-    .then(data => {
-
-        data.categories.forEach(value => {
-
-            // OFFCANVAS MENU
-
-            category.innerHTML += `
+      category.innerHTML += `
 
                 <div class="category"
                      onclick="openCategory('${value.strCategory}')">
@@ -29,10 +25,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
             `;
 
+      // CATEGORY CARDS
 
-            // CATEGORY CARDS
-
-            cards.innerHTML += `
+      cards.innerHTML += `
 
                 <a href="second.html?category=${encodeURIComponent(value.strCategory)}">
 
@@ -52,58 +47,68 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
                 </a>
 
             `;
-
-        });
-
-    })
-
-    .catch(error => {
-
-        console.log("Error:", error);
-
     });
-// MENU CATEGORY CLICK
+  })
 
-// function openCategory(categoryName) {
+  .catch((error) => {
+    console.log("Error:", error);
+  });
 
-//     window.location.href =
-//         "second.html?category=" + encodeURIComponent(categoryName);
-
-// }
 let url = new URLSearchParams(window.location.search);
 
 let mealId = url.get("id");
 
 let mealDetails = document.getElementById("mealDetails");
 
-
 if (mealId) {
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+    .then((res) => {
+      return res.json();
+    })
 
-    fetch(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
-    )
+    .then((data) => {
+      if (!data.meals) {
+        mealDetails.innerHTML = "<h2>No meals found</h2>";
 
-        .then((res) => {
+        return;
+      }
 
-            return res.json();
+      let meal = data.meals[0];
 
-        })
+      let ingredientsHTML = "";
 
-        .then((data) => {
+      for (let i = 1; i <= 20; i++) {
+        let ingredient = meal["strIngredient" + i];
+        
 
-            if (!data.meals) {
+        if (ingredient && ingredient.trim() !== "") {
+          ingredientsHTML += `
+            <li>
+                ${ingredient}
+            </li>
+        `;
+        }
+      }
 
-                mealDetails.innerHTML =
-                    "<h2>No meals found</h2>";
+      let measurementsHTML = "";
+      for (let i = 1; i <= 20; i++) {
+        let ingredient = meal["strIngredient" + i];
+        let measure = meal["strMeasure" + i];
 
-                return;
-            }
+        if (ingredient && ingredient.trim() !== "") {
+          measurementsHTML += `
+                    <div class="measure-item">
+                    <div>
+                        <img src="">
+                        <span>${measure || "As required"}</span>
+                    </div>
+                    <span>${ingredient}</span>
+                    </div>
+                    `;
+        }
+      }
 
-
-            let meal = data.meals[0];
-
-
-            mealDetails.innerHTML = `
+      mealDetails.innerHTML = `
 
                 <div>
 
@@ -121,8 +126,20 @@ if (mealId) {
                     </p>
 
                     <p>
-                        Area: ${meal.strArea}
+                        Source: ${meal.strYoutube}
                     </p>
+
+                    <h3>
+                        Ingredients
+                    </h3>
+
+                   <ul>
+                     ${ingredientsHTML}
+                    </ul>
+
+                    <div>
+                        ${measurementsHTML}
+                    </div>
 
                     <h3>
                         Instructions
@@ -132,49 +149,12 @@ if (mealId) {
                         ${meal.strInstructions}
                     </p>
 
-                    <h3>
-                        Ingredients
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            ${meal.strIngredient1}
-                            -
-                            ${meal.strMeasure1}
-                        </li>
-
-                        <li>
-                            ${meal.strIngredient2}
-                            -
-                            ${meal.strMeasure2}
-                        </li>
-
-                        <li>
-                            ${meal.strIngredient3}
-                            -
-                            ${meal.strMeasure3}
-                        </li>
-
-                    </ul>
-
-                    <a
-                        href="${meal.strYoutube}"
-                        target="_blank"
-                    >
-                        Watch Recipe Video
-                    </a>
-
                 </div>
 
             `;
+    })
 
-        })
-
-        .catch((error) => {
-
-            console.log("Error:", error);
-
-        });
-
+    .catch((error) => {
+      console.log("Error:", error);
+    });
 }
