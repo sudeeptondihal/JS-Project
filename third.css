@@ -578,3 +578,643 @@ div button i {
     padding: 12px;
     color: white;
 }
+
+
+
+
+
+/* MOBILE RESPONSIVE */
+
+
+@media screen and (max-width: 767px) {
+
+    /* NAVBAR */
+
+    nav {
+        height: 50px;
+        padding: 5px 8px;
+    }
+
+    .nav {
+        gap: 3px;
+    }
+
+    .nav img {
+        width: 40px;
+        height: 35px;
+    }
+
+    .nav h1 {
+        font-size: 20px;
+        right: 5px;
+    }
+
+    .menu button {
+        font-size: 18px;
+    }
+
+
+    /* BANNER */
+
+    .hero {
+        width: 100%;
+        height: 360px;
+
+        background-position: center;
+        background-size: cover;
+    }
+
+    .div1 {
+        width: 100%;
+        padding: 15px;
+    }
+
+
+    /* SEARCH */
+
+    .search-box {
+        width: 100%;
+        gap: 6px;
+    }
+
+    .search-box input {
+        width: calc(100% - 50px);
+        height: 42px;
+        padding: 0 15px;
+        font-size: 13px;
+    }
+
+    .search-box button {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+    }
+
+    .search-box button i {
+        font-size: 14px;
+    }
+
+
+    /* HERO TEXT */
+
+    .div1 h1 {
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+
+    .div1 p {
+        font-size: 10px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+    }
+
+
+    /* CATEGORY SECTION */
+
+    .category-section {
+        padding: 30px 15px;
+    }
+
+    .category-heading {
+        margin-bottom: 20px;
+    }
+
+    .category-heading h1 {
+        font-size: 23px;
+        letter-spacing: 1.5px;
+    }
+
+    .orange-line {
+        width: 60px;
+    }
+
+
+    /* CATEGORY CARDS */
+
+    #cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .card {
+        height: 130px;
+        padding: 5px;
+    }
+
+    .card span {
+        top: 7px;
+        right: 7px;
+        font-size: 10px;
+        padding: 3px 5px;
+    }
+
+
+    /* MEAL DETAILS */
+
+    #mealDetails {
+        width: 100%;
+        margin: 20px 0 40px;
+        padding: 0 10px;
+    }
+
+    
+
+    #mealDetails > div {
+        width: 100%;
+        padding: 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    /* MEAL IMAGE */
+
+    #mealDetails > div > img {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        object-fit: cover;
+
+        order: 1;
+    }
+
+
+    /* MEAL NAME */
+
+    .mealname {
+        order: 2;
+
+        font-size: 22px;
+        margin: 0;
+
+        color: #E16120;
+    }
+
+
+    /* LINE */
+
+    .hr {
+        order: 3;
+        margin: 0;
+    }
+
+
+    /* CATEGORY */
+
+    .category1 {
+        order: 4;
+
+        font-size: 15px;
+        margin: 0;
+    }
+
+
+    /* SOURCE */
+
+    .source {
+        order: 5;
+
+        font-size: 15px;
+        margin: 0;
+        color: #555;
+    }
+
+
+    /* TAGS */
+
+    .tags {
+        order: 6;
+
+        font-size: 15px;
+        margin: 0;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .tag1 {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+
+
+    /* INGREDIENTS */
+
+    .mainIng {
+        order: 7;
+
+        width: 100%;
+        margin: 0;
+    }
+
+    .ingredientBox {
+        width: 100%;
+    }
+
+    .ing {
+        font-size: 17px;
+        padding: 9px;
+    }
+
+    .getIng {
+        width: 100%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .getIng li {
+        font-size: 13px;
+        padding-left: 23px;
+    }
+
+
+    /* MEASURE */
+
+    .measureheading {
+        order: 8;
+
+        width: 100%;
+        font-size: 19px;
+        margin: 5px 0;
+    }
+
+    #mealDetails .measureheading + div {
+        order: 9;
+
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        column-gap: 0;
+        row-gap: 5px;
+
+        padding: 8px;
+    }
+
+    #mealDetails .measure-item {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    .spoon {
+        width: 18px;
+        height: 18px;
+    }
+
+
+    /* INSTRUCTIONS HEADING */
+
+    #mealDetails > div > h3:not(.measureheading) {
+        order: 10;
+
+        width: 100%;
+
+        font-size: 20px;
+
+        margin: 5px 0 0;
+    }
+
+
+    /* INSTRUCTIONS */
+
+    #mealDetails .insSec {
+        order: 11;
+
+        width: 100%;
+    }
+
+    #mealDetails .instruction {
+        width: 100%;
+
+        font-size: 14px;
+        line-height: 1.6;
+
+        color: #555;
+    }
+
+    #mealDetails .instruction p {
+        margin: 0 0 10px 0;
+    }
+
+    #mealDetails .instruction i {
+        font-size: 13px;
+        margin-right: 4px;
+    }
+
+
+    /* HOME BUTTON */
+
+    .house {
+        margin: 8px;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+
+/* TABLET RESPONSIVE */
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* NAVBAR */
+
+    nav {
+        height: 55px;
+        padding: 5px 12px;
+    }
+
+    .nav img {
+        width: 45px;
+        height: 40px;
+    }
+
+    .nav h1 {
+        font-size: 24px;
+        right: 5px;
+    }
+
+    .menu button {
+        font-size: 20px;
+    }
+
+
+        /* BANNER */
+    
+
+    .hero {
+        width: 100%;
+        height: 430px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .div1 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .search-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .search-box input {
+        width: 350px;
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .search-box button {
+        width: 45px;
+        height: 45px;
+    }
+
+    .div1 h1 {
+        font-size: 28px;
+    }
+
+    .div1 p {
+        font-size: 13px;
+    }
+
+
+    /* CATEGORY SECTION */
+    
+
+    .category-section {
+        width: 100%;
+        padding: 40px 25px;
+    }
+
+    .category-heading h1 {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    #cards {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .card {
+        width: 100%;
+        height: 150px;
+    }
+
+    .card span {
+        font-size: 11px;
+    }
+
+
+    /* MEAL DETAILS */
+
+    #mealDetails {
+        width: 100%;
+        margin: 30px 0 60px;
+        padding: 0 15px;
+    }
+
+
+    #mealDetails > div {
+        width: 100%;
+        padding: 20px;
+
+        display: grid;
+
+        grid-template-columns: 45% 55%;
+
+        gap: 15px;
+
+        align-items: start;
+    }
+
+
+    /* MEAL IMAGE */
+
+    #mealDetails > div > img {
+        width: 100%;
+        height: 350px;
+
+        object-fit: cover;
+
+        grid-column: 1;
+        grid-row: 1 / 6;
+    }
+
+
+    /* MEAL NAME */
+
+    .mealname {
+        grid-column: 2;
+
+        font-size: 21px;
+
+        margin: 0;
+    }
+
+
+    /* LINE */
+
+    .hr {
+        grid-column: 2;
+
+        margin: 0;
+    }
+
+
+    /* CATEGORY */
+
+    .category1 {
+        grid-column: 2;
+
+        margin: 0;
+
+        font-size: 16px;
+    }
+
+
+    /* SOURCE */
+
+    .source {
+        grid-column: 2;
+
+        margin: 0;
+
+        font-size: 16px;
+    }
+
+
+    /* TAGS */
+
+    .tags {
+        grid-column: 2;
+
+        margin: 0;
+
+        font-size: 16px;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .tag1 {
+        font-size: 13px;
+        padding: 7px;
+    }
+
+
+    /* INGREDIENTS */
+    
+
+    .mainIng {
+        grid-column: 2;
+
+        width: 100%;
+
+        margin: 0;
+    }
+
+    .ingredientBox {
+        width: 100%;
+    }
+
+    .ing {
+        font-size: 17px;
+        padding: 9px;
+    }
+
+    .getIng {
+        width: 100%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 8px 10px;
+
+        padding: 8px 10px 12px;
+    }
+
+    .getIng li {
+        font-size: 14px;
+        padding-left: 23px;
+    }
+
+
+    /* MEASURE */
+    
+
+    .measureheading {
+        grid-column: 1 / 3;
+
+        font-size: 19px;
+
+        margin: 15px 0 5px;
+    }
+
+    #mealDetails .measureheading + div {
+        grid-column: 1 / 3;
+
+        width: 100%;
+
+        grid-template-columns: 1fr 1fr;
+
+        column-gap: 20px;
+
+        padding: 8px 10px;
+    }
+
+    #mealDetails .measure-item {
+        font-size: 15px;
+    }
+
+
+    /* INSTRUCTIONS */
+
+    #mealDetails > div > h3:not(.measureheading) {
+        grid-column: 1 / 3;
+
+        font-size: 20px;
+
+        margin: 5px 0 0;
+    }
+
+    #mealDetails .insSec {
+        grid-column: 1 / 3;
+
+        width: 100%;
+    }
+
+    #mealDetails .instruction {
+        width: 100%;
+
+        font-size: 16px;
+
+        line-height: 1.6;
+    }
+
+    #mealDetails .instruction p {
+        margin: 0 0 8px 0;
+    }
+
+
+    /* HOME BUTTON */
+
+    .house {
+        margin: 10px;
+        padding: 10px;
+    }
+}

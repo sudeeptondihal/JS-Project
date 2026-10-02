@@ -102,7 +102,7 @@ if (mealId) {
           measurementsHTML += `
                     <div class="measure-item">
                     <div>
-                        <img src="/spoon.jpeg" class="spoon">
+                        <img src="spoon.jpeg" class="spoon">
                         <span>${measure || "As required"}</span>
                     </div>
                     <span>${ingredient}</span>
