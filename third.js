@@ -75,11 +75,14 @@ if (mealId) {
 
       let meal = data.meals[0];
 
+      let bread = document.getElementById("bread");
+
+      bread.innerHTML = `${meal.strMeal}`;
+
       let ingredientsHTML = "";
 
       for (let i = 1; i <= 20; i++) {
         let ingredient = meal["strIngredient" + i];
-        
 
         if (ingredient && ingredient.trim() !== "") {
           ingredientsHTML += `
@@ -99,13 +102,23 @@ if (mealId) {
           measurementsHTML += `
                     <div class="measure-item">
                     <div>
-                        <img src="">
+                        <img src="/spoon.jpeg" class="spoon">
                         <span>${measure || "As required"}</span>
                     </div>
                     <span>${ingredient}</span>
                     </div>
                     `;
         }
+      }
+
+      let tagsHTML = "";
+
+      if (meal.strTags) {
+        meal.strTags.split(",").forEach(function (tag) {
+          tagsHTML += `<span class="meal-tag">${tag}</span>`;
+        });
+      } else {
+        tagsHTML = "<span>No tags available</span>";
       }
 
       mealDetails.innerHTML = `
@@ -117,39 +130,60 @@ if (mealId) {
                         alt="${meal.strMeal}"
                     >
 
-                    <h2>
+                    <h1 class="mealname">
                         ${meal.strMeal}
-                    </h2>
+                    </h1>
+                    <hr class="hr">
 
-                    <p>
+                    <p class="category1">
                         Category: ${meal.strCategory}
                     </p>
 
-                    <p>
-                        Source: ${meal.strYoutube}
+                    <p class="source">
+                        Source: ${meal.strSource}
                     </p>
 
-                    <h3>
-                        Ingredients
-                    </h3>
+                    <span class="tags">
+                      <b>Tags:</b>
+                      <span class="tag1">${tagsHTML}</span>
+                    </span>
 
-                   <ul>
-                     ${ingredientsHTML}
-                    </ul>
 
+                    <div class="mainIng">
+                    <div class="ingredientBox">
                     <div>
-                        ${measurementsHTML}
+
+                                <h3 class="ing">
+                                    Ingredients
+                                </h3>
                     </div>
+                                <ul class="getIng">
+                                    ${getIngredients(meal)}
+                                </ul>
+                      </div>
 
-                    <h3>
-                        Instructions
-                    </h3>
+                      
+                      </div>
 
-                    <p>
-                        ${meal.strInstructions}
-                    </p>
+                      
+              <h3 class="measureheading">
+    Measure:
+</h3>
 
-                </div>
+<div>
+    ${measurementsHTML}
+</div>
+
+<h3>
+    Instructions:
+</h3>
+
+<div class="insSec">
+    <div class="instruction">
+        ${getInstructions(meal.strInstructions)}
+    </div>
+</div>
+                    </div>
 
             `;
     })
@@ -157,4 +191,32 @@ if (mealId) {
     .catch((error) => {
       console.log("Error:", error);
     });
+}
+
+function getInstructions(instructions) {
+  let steps = instructions.split(/\r?\n/).filter((step) => step.trim() !== "");
+
+  return steps
+    .map((step) => {
+      return `
+           <p><i class="fa-solid fa-check" id="rightmark"></i> ${step}</p>
+        `;
+    })
+    .join("");
+}
+
+function getIngredients(meal) {
+  let ingredients = "";
+
+  for (let i = 1; i <= 20; i++) {
+    let ingredient = meal[`strIngredient${i}`];
+
+    if (ingredient && ingredient.trim() !== "") {
+      ingredients += `
+                <li>${ingredient}</li>
+            `;
+    }
+  }
+
+  return ingredients;
 }
