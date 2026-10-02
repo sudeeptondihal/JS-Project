@@ -11,6 +11,11 @@ nav {
     background-color: #E16120;
     padding: 5px 10px;
     height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
 .nav {
@@ -354,3 +359,282 @@ div button i {
 }                                                                                                                                                                                                                                                                                       
 
 
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+    /* NAVBAR */
+
+    nav {
+        height: 50px;
+        padding: 5px 8px;
+    }
+
+    .nav img {
+        width: 40px;
+        height: 35px;
+    }
+
+    .nav h1 {
+        font-size: 20px;
+        right: 5px;
+    }
+
+    .menu button {
+        font-size: 18px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 400px;
+        background-position: center;
+    }
+
+    .div1 {
+        padding: 15px;
+    }
+
+    .search-box {
+        gap: 6px;
+    }
+
+    .search-box input {
+        width: 220px;
+        height: 40px;
+        font-size: 13px;
+        padding: 0 15px;
+    }
+
+    .search-box button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .search-box button i {
+        font-size: 14px;
+    }
+
+    .div1 h1 {
+        font-size: 23px;
+        margin-top: 20px;
+    }
+
+    .div1 p {
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+
+
+    /* CATEGORY SECTION */
+
+    .category-section {
+        padding: 30px 15px;
+        min-height: auto;
+    }
+
+    .category-heading {
+        margin-bottom: 20px;
+    }
+
+    .category-heading h1 {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .orange-line {
+        width: 60px;
+        height: 3px;
+    }
+
+
+    /* CATEGORY CARDS */
+
+    #cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .card {
+        height: 120px;
+        padding: 5px;
+    }
+
+    .card span {
+        top: 6px;
+        right: 6px;
+        font-size: 8px;
+        padding: 3px 5px;
+    }
+
+
+    /* MEAL CARDS */
+
+    #mealCards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .meal-cards {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .meal-cards img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .meal-cards h3 {
+        font-size: 18px;
+        padding: 10px 12px;
+    }
+
+    .meal-Title {
+        padding: 12px;
+    }
+
+    .meal-category {
+        top: 8px;
+        right: 8px;
+        padding: 5px 7px;
+        font-size: 11px;
+    }
+
+    .itemCheck {
+        grid-template-columns: 1fr;
+    }
+
+    #mealLine {
+        width: 50px;
+        height: 3px;
+    }
+}
+
+
+/* TABLET */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* NAVBAR */
+
+    nav {
+        height: 50px;
+        padding: 5px 12px;
+    }
+
+    .nav img {
+        width: 45px;
+        height: 38px;
+    }
+
+    .nav h1 {
+        font-size: 24px;
+        right: 7px;
+    }
+
+    .menu button {
+        font-size: 19px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 450px;
+    }
+
+    .div1 {
+        padding: 20px;
+    }
+
+    .search-box input {
+        width: 260px;
+        height: 43px;
+    }
+
+    .search-box button {
+        width: 43px;
+        height: 43px;
+    }
+
+    .div1 h1 {
+        font-size: 27px;
+        margin-top: 22px;
+    }
+
+    .div1 p {
+        font-size: 12px;
+    }
+
+
+    /* CATEGORY SECTION */
+
+    .category-section {
+        padding: 40px 20px;
+    }
+
+    .category-heading h1 {
+        font-size: 27px;
+    }
+
+
+    /* CATEGORY CARDS */
+
+    #cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .card {
+        height: 140px;
+    }
+
+    .card span {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
+
+
+    /* MEAL CARDS */
+
+    #mealCards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .meal-cards {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .meal-cards img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .meal-cards h3 {
+        font-size: 19px;
+        padding: 10px 13px;
+    }
+
+    .meal-Title {
+        padding: 15px;
+    }
+
+    .meal-category {
+        top: 8px;
+        right: 8px;
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .itemCheck {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
