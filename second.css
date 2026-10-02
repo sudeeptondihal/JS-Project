@@ -263,3 +263,335 @@ div button i {
 }
 
 
+/* MOBILE */
+
+@media screen and (max-width: 767px) {
+
+    /* NAVBAR */
+
+    nav {
+        height: 50px;
+        padding: 5px 8px;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav img {
+        width: 40px;
+        height: 35px;
+    }
+
+    .nav h1 {
+        font-size: 20px;
+    }
+
+    .menu button {
+        font-size: 18px;
+    }
+
+
+    /* OFFCANVAS */
+
+    .category {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+
+    /* BANNER */
+
+    .hero {
+        width: 100%;
+        height: 380px;
+
+        background-position: center;
+        background-size: cover;
+    }
+
+    .div1 {
+        width: 100%;
+        padding: 15px;
+    }
+
+
+    /* SEARCH */
+
+    .search-box {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 6px;
+    }
+
+    .search-box input {
+        width: 75%;
+        height: 42px;
+
+        font-size: 13px;
+
+        padding: 0 15px;
+    }
+
+    #search-btn {
+        width: 42px;
+        height: 42px;
+
+        padding: 8px;
+    }
+
+
+    /* HERO TEXT */
+
+    .div1 h1 {
+        font-size: 22px;
+
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+
+    .div1 p {
+        font-size: 10px;
+
+        line-height: 1.5;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    /* MEAL TITLE */
+
+    .meal-Title {
+        padding: 25px 15px 15px;
+    }
+
+    .meal-Title h1 {
+        font-size: 23px;
+
+        line-height: 1.3;
+    }
+
+    .mealLine {
+        width: 55px;
+        height: 3px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .description {
+        width: auto;
+
+        margin: 15px;
+
+        padding: 12px;
+
+        border: 2px solid #E16120;
+    }
+
+    .description h2 {
+        font-size: 19px;
+
+        margin-bottom: 10px;
+    }
+
+    .description p {
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        word-wrap: break-word;
+    }
+
+
+    /* MEAL CARDS */
+
+    #mealCards {
+        width: calc(100% - 20px);
+
+        margin: 10px auto 30px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+
+    /* CARD */
+
+    .meal-cards {
+        width: 100%;
+
+        height: 100%;
+
+        margin: 0;
+
+        border-radius: 4px;
+    }
+
+
+    /* IMAGE */
+
+    .meal-cards img {
+        width: 100%;
+
+        height: 130px;
+
+        object-fit: cover;
+    }
+
+
+    /* MEAL NAME */
+
+    .meal-cards h6 {
+        padding: 8px;
+
+        font-size: 13px;
+
+        line-height: 1.3;
+    }
+
+
+    /* LINK */
+
+    .itemCheck {
+        width: 100%;
+    }
+}
+
+
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* NAVBAR */
+    nav {
+        height: 55px;
+        padding: 5px 12px;
+    }
+
+    .nav img {
+        width: 45px;
+        height: 40px;
+    }
+
+    .nav h1 {
+        font-size: 23px;
+    }
+
+    .menu button {
+        font-size: 20px;
+    }
+
+    /* BANNER */
+    .hero {
+        width: 100%;
+        height: 450px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .div1 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* SEARCH */
+    .search-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .search-box input {
+        width: 55%;
+        height: 48px;
+        font-size: 15px;
+        padding: 0 18px;
+    }
+
+    #search-btn {
+        width: 48px;
+        height: 48px;
+        padding: 10px;
+    }
+
+    /* HERO TEXT */
+    .div1 h1 {
+        font-size: 28px;
+        margin-top: 25px;
+    }
+
+    .div1 p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    /* MEAL TITLE */
+    .meal-Title {
+        padding: 30px 20px 18px;
+    }
+
+    .meal-Title h1 {
+        font-size: 28px;
+    }
+
+    .mealLine {
+        width: 65px;
+        height: 3px;
+    }
+
+    /* DESCRIPTION */
+    .description {
+        margin: 18px 20px;
+        padding: 15px;
+    }
+
+    .description h2 {
+        font-size: 21px;
+    }
+
+    .description p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* MEAL CARDS */
+    #mealCards {
+        width: 94%;
+        margin: 15px auto 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .meal-cards {
+        width: 100%;
+        height: 100%;
+    }
+
+    .meal-cards img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+    }
+
+    .meal-cards h6 {
+        padding: 10px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .itemCheck {
+        width: 100%;
+    }
+}
